@@ -13,12 +13,15 @@ import { SavePokemons, VerifyPokemons } from "../../functions/storage";
 var pokemonsOriginal = [];
 const perPage = 16;
 const limit = 48; //default = 898
+
 var max = 0;
 
 function Home({ history, ...props }) {
   const { query } = props.match.params;
+
   const [loading, setLoading] = useState(true);
   const [pokemons, setPokemons] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   function HandlerResult(maximum, pokemons) {
     max = maximum;
@@ -110,6 +113,16 @@ function Home({ history, ...props }) {
       }
     }, 1000);
   }
+  function toggleFavorite(id) {
+    const isFavorite = favorites.includes(id);
+    if (isFavorite) {
+      const updatedFavorites = favorites.filter((favoriteId) => favoriteId !== id);
+      setFavorites(updatedFavorites);
+    } else {
+      setFavorites([...favorites, id]);
+    }
+
+  }
 
   return (
     <div>
@@ -138,29 +151,31 @@ function Home({ history, ...props }) {
             }
             endMessage={
               <p className="text-light" style={{ textAlign: "center" }}>
-                <b>Yay! You have seen it all</b>
+                <b>Você já viu tudos!</b>
               </p>
             }
           >
             <Row>
-              {pokemons.map((item) => {
-                return (
-                  <Col key={item.id} xs={12} sm={6} lg={3}>
-                    <PokeCard
-                      name={item.name}
-                      id={item.id}
-                      types={item.types}
-                      click={true}
-                    />
-                  </Col>
-                );
-              })}
+              {pokemons.map((item) => (
+                <Col key={item.id} xs={12} sm={6} lg={3}>
+                  <PokeCard
+                    name={item.name}
+                    id={item.id}
+                    types={item.types}
+                    click={true}
+                    isSelected={favorites.includes(item.id)}
+                    toggleFavorite={toggleFavorite}
+                  />
+                </Col>
+              ))}
             </Row>
+
           </InfiniteScroll>
         )}
       </Container>
       <Footer />
     </div>
+
   );
 }
 
