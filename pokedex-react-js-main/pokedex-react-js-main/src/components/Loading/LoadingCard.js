@@ -1,14 +1,12 @@
 import React from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { Row, Col } from "react-bootstrap";
-
 import Colors from "../../styles/Colors";
 import "./styles.css";
 
 const LoadingCard = ({ qty }) => {
   function RenderSkeleton() {
     var list = [];
-
     for (var i = 1; i <= qty; i++) {
       list.push(
         <Col xs={12} sm={6} lg={3} key={i}>
