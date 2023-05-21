@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-
 import "./styles.css";
 
 const Search = ({ history, query }) => {
@@ -13,6 +12,7 @@ const Search = ({ history, query }) => {
   }, [searchQuery]);
 
   return (
+    
     <div className="container-search mb-4">
       <Form.Label>Nome ou ID do Pokémon</Form.Label>
       <div className="container-input-btn">
@@ -26,6 +26,10 @@ const Search = ({ history, query }) => {
             <FontAwesomeIcon icon={faTimes} color={"white"} />
           </button>
         )}
+        
+        <button onClick={() => history.push('/index')} className="btn-custom">
+        Pokedex
+      </button>
       </div>
     </div>
   );
