@@ -1,7 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
 import "./styles.css";
 import logo from "../../assets/img/logo.png";
 
