@@ -1,4 +1,4 @@
-import { createContext, useState , useContext } from "react";
+import { createContext, useState, useContext } from "react";
 
 export const FavoritesContext = createContext()
 FavoritesContext.displayName = "MyFavorites"
@@ -8,7 +8,7 @@ export default function FavoritesProvider({ children }) {
 
     return (
         <FavoritesContext.Provider
-             value={{ favorite, setFavorites }}
+            value={{ favorite, setFavorites }}
 
         >
             {children}
