@@ -672,6 +672,21 @@
   align-items: center;
   font-size: 40px;
 }
+.button-update {
+  background-color: #ffcc00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-update:hover {
+  background-color: #ffa500;
+}
 
 @media screen and (max-width: 767px) {
   .evolution-item {
