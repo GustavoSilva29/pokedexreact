@@ -1,5 +1,4 @@
 import React from "react";
-
 import { DetermineGenderRate } from "../../functions/utils";
 
 const PokeInfo = ({
