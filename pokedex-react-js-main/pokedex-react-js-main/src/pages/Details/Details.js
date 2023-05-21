@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-
 import LoadingDetails from "../../components/Loading/LoadingDetails";
 import Header from "../../components/Header/Header";
 import PokeCard from "../../components/Pokemon/PokeCard";
@@ -15,7 +14,6 @@ import axios from "axios";
 
 function Details({ history, ...props }) {
   const { name } = props.match.params;
-
   const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState({});
   const [showModalError, setShowModalError] = useState(false);
