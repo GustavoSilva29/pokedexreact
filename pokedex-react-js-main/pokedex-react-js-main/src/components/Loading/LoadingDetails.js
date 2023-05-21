@@ -1,7 +1,6 @@
 import React from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { Row, Col } from "react-bootstrap";
-
 import Colors from "../../styles/Colors";
 import "./styles.css";
 
