@@ -8,11 +8,25 @@ import { useFavoriteContext } from "../../contexts/Favorites";
 
 const PokeCard = ({ name, id, types, click }) => {
   const [error, setError] = useState(false);
-  const { favorite, addFavorite } = useFavoriteContext()
+  const { favorite, addFavorite } = useFavoriteContext();
+  const [manualImage, setManualImage] = useState(""); // Adiciona o estado para a imagem manual
 
   useEffect(() => {
     setError(false);
   }, [id]);
+
+  const handleManualImageChange = (event) => {
+    setManualImage(event.target.value); // Atualiza o estado da imagem manual
+  };
+
+  const handleManualImageSubmit = (event) => {
+    event.preventDefault();
+    if (manualImage) {
+      setError(false);
+    } else {
+      setError(true);
+    }
+  };
 
   return (
     <div className="container-card mb-4">
@@ -26,7 +40,6 @@ const PokeCard = ({ name, id, types, click }) => {
       </div>
       <figure
         className={`container-card-img position-relative my-4 container-${types[0].type.name}`}
-
       >
         <Link to={click ? `/details/${name}` : "javascript:void"}>
           {error ? (
@@ -37,7 +50,7 @@ const PokeCard = ({ name, id, types, click }) => {
               className="animation-up-down"
               alt={name}
               title={name}
-              src={GetImageById(id)}
+              src={manualImage || GetImageById(id)}
             />
           )}
         </Link>
@@ -47,7 +60,6 @@ const PokeCard = ({ name, id, types, click }) => {
           alt="teste"
           onClick={() => addFavorite(id)}
         />
-
       </figure>
       <div className="w-100  d-flex justify-content-between">
         {types.map((item, index) => {
@@ -60,11 +72,18 @@ const PokeCard = ({ name, id, types, click }) => {
             >
               <p className="mb-0 text-uppercase">{item.type.name}</p>
             </div>
-
           );
         })}
-
       </div>
+      <form onSubmit={handleManualImageSubmit}>
+        <input
+          type="text"
+          value={manualImage}
+          onChange={handleManualImageChange}
+          placeholder="link da imagem"
+        />
+        <button type="submit" className="button-update">Atualizar Foto</button>
+      </form>
     </div>
   );
 };
