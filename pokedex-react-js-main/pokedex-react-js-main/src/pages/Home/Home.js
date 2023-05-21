@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
-
 import Header from "../../components/Header/Header";
 import PokeCard from "../../components/Pokemon/PokeCard";
 import Search from "../../components/Others/Search";
@@ -18,7 +17,6 @@ var max = 0;
 
 function Home({ history, ...props }) {
   const { query } = props.match.params;
-
   const [loading, setLoading] = useState(true);
   const [pokemons, setPokemons] = useState([]);
 
