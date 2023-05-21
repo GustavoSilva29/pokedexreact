@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import pokeballwhite from "./pokeball-white.png";
 import "./styles.css";
 import { GetImageById } from "../../functions/utils";
-
 import pokemon_placeholder from "../../assets/img/pokemon-placeholder.png";
+import { useFavoriteContext } from "../../contexts/Favorites";
 
 const PokeCard = ({ name, id, types, click }) => {
   const [error, setError] = useState(false);
+  const { favorite, addFavorite } = useFavoriteContext()
 
   useEffect(() => {
     setError(false);
@@ -25,6 +26,7 @@ const PokeCard = ({ name, id, types, click }) => {
       </div>
       <figure
         className={`container-card-img position-relative my-4 container-${types[0].type.name}`}
+
       >
         <Link to={click ? `/details/${name}` : "javascript:void"}>
           {error ? (
@@ -39,6 +41,13 @@ const PokeCard = ({ name, id, types, click }) => {
             />
           )}
         </Link>
+
+        <img
+          src={pokeballwhite}
+          alt="teste"
+          onClick={() => addFavorite(id)}
+        />
+
       </figure>
       <div className="w-100  d-flex justify-content-between">
         {types.map((item, index) => {
@@ -51,8 +60,10 @@ const PokeCard = ({ name, id, types, click }) => {
             >
               <p className="mb-0 text-uppercase">{item.type.name}</p>
             </div>
+
           );
         })}
+
       </div>
     </div>
   );
