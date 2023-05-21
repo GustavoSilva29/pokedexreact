@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import pokeball_white from "../../assets/img/pokeball-white.png";
 
 const PokeOverview = ({
