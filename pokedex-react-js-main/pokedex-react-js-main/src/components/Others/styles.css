@@ -1,17 +1,17 @@
 .container-search {
-  color: white;
+  color:  var(--white);
   font-size: 20px;
 }
 
 .container-search input {
-  background-color: var(--brand_dark);
+  background-color: var(--brand_yellow);
   border: none;
   color: white !important;
   width: 96%;
 }
 
 .container-search input:focus {
-  background-color: var(--brand_dark);
+  background-color: var(--brand_yellow);
 }
 
 .container-input-btn {
@@ -28,6 +28,15 @@
   border-radius: 4px;
 }
 
+.btn-custom {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 8px;
+}
 /* Footer */
 footer {
   background-color: var(--card_gray);
