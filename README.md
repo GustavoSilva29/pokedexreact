@@ -1,4 +1,4 @@
-# Pokedex em React consumindo a PokéApi pública responsivamente
+# Pokédex em React consumindo a PokéApi pública responsivamente
 
 ## Tecnologias utilizadas
 
