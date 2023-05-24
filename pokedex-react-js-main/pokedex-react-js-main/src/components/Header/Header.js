@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./styles.css";
 import logo from "../../assets/img/logo.png";
-
+// Componente de cabeçalho
 const Header = () => {
   return (
     <header className="container-header mb-5">
