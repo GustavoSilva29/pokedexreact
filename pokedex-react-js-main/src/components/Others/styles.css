@@ -1,0 +1,87 @@
+.container-search {
+  color: var(--white); /* Cor do texto */
+  font-size: 20px; /* Tamanho da fonte */
+}
+
+.container-search input {
+  background-color: var(--eletric); /* Cor de fundo do input */
+  border: none; /* Remoção da borda */
+  color: rgb(250, 250, 250) !important; /* Cor do texto dentro do input */
+  width: 96%; /* Largura do input */
+}
+
+.container-search input:focus {
+  background-color: var(--eletric); /* Cor de fundo do input quando em foco */
+}
+
+.container-input-btn {
+  display: flex; /* Exibição em linha dos elementos internos */
+  justify-content: space-between; /* Espaçamento entre os elementos internos */
+  border: 1px solid white; /* Borda com cor branca */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 10px; /* Raio do canto arredondado */
+}
+
+.btn-clear {
+  background: none; /* Remoção do fundo */
+  border: none; /* Remoção da borda */
+  border-radius: 4px; /* Raio do canto arredondado */
+}
+
+.btn-custom {
+  background-color: #08090a; /* Cor de fundo do botão */
+  color: #fff; /* Cor do texto do botão */
+  border: none; /* Remoção da borda */
+  padding: 8px 16px; /* Espaçamento interno */
+  border-radius: 4px; /* Raio do canto arredondado */
+  cursor: pointer; /* Cursor do mouse ao passar por cima do botão */
+  margin-left: 8px; /* Espaçamento à esquerda */
+}
+
+/* Estilos para o rodapé */
+footer {
+  background-color: var(--card_gray); /* Cor de fundo do rodapé */
+  padding: 10px; /* Espaçamento interno */
+  color: white; /* Cor do texto */
+  text-align: center; /* Alinhamento centralizado */
+}
+
+footer p {
+  margin-bottom: 0; /* Remoção da margem inferior */
+}
+
+.credits-text {
+  color: #ddd; /* Cor do texto dos créditos */
+  font-family: "OldSansBlack"; /* Estilo da fonte */
+}
+
+footer .mhq {
+  color: white; /* Cor do texto do link */
+  transition: 1s all; /* Transição suave */
+  font-family: "OldSansBlack"; /* Estilo da fonte */
+}
+
+footer .mhq:hover {
+  color: white; /* Cor do texto do link ao passar o mouse */
+  text-decoration: none; /* Remoção do sublinhado */
+  opacity: 0.9; /* Opacidade reduzida */
+}
+
+footer .view-code {
+  color: #ddd; /* Cor do texto do link */
+  display: block; /* Exibição em bloco */
+  transition: 1s all; /* Transição suave */
+  font-size: 12px; /* Tamanho da fonte */
+}
+
+footer .view-code:hover {
+  color: #ddd; /* Cor do texto do link ao passar o mouse */
+  text-decoration: none; /* Remoção do sublinhado */
+  opacity: 0.9; /* Opacidade reduzida */
+}
+
+/* Estilos para o modal de erro */
+.modal-content {
+  background-color: white !important; /* Cor de fundo do modal */
+  color: white; /* Cor do texto */
+}

@@ -1,0 +1,5 @@
+.loading-item {
+  background-color: var(--fire);
+  height: 382px;
+  border-radius: 10px;
+}
