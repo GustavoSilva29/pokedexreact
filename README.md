@@ -33,4 +33,6 @@ npm install
 ou
 yarn install
 
+Se necessario executar o comando npm audit fix --force
+
 Por fim, abra o seu navegador e acesse o seguinte endereço: http://localhost:3000
