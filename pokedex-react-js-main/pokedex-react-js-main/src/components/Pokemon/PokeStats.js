@@ -4,18 +4,22 @@ const PokeStats = ({ stats, types }) => {
   return (
     <div className="container-bar mt-0">
       <h4 className="w-100 mb-4 section-title">Stats</h4>
+      {/* Mapeia cada estatística e renderiza a barra correspondente */}
       {stats.map((item, index) => {
         return (
           <div key={index} className="bar-item">
+            {/* Barra de progresso */}
             <div className="bar">
               <div
                 style={{ height: item.base_stat }}
                 className={`bar-active ${types[0].type.name}`}
               />
+              {/* Rótulo com o valor da estatística */}
               <div className="container-label">
                 <p className="value">{item.base_stat}</p>
               </div>
             </div>
+            {/* Nome da estatística */}
             <p className="mb-0 mt-2 text-center label limit-text">
               {item.stat.name}
             </p>
