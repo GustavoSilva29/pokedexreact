@@ -1,30 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import pokeballwhite from "./pokeball-white.png";
 import "./styles.css";
 import { GetImageById } from "../../functions/utils";
 import pokemon_placeholder from "../../assets/img/pokemon-placeholder.png";
 import { useFavoriteContext } from "../../contexts/Favorites";
 
 const PokeCard = ({ name, id, types, click }) => {
-  const [error, setError] = useState(false);
-  const { favorite, addFavorite } = useFavoriteContext();
-  const [manualImage, setManualImage] = useState(""); // Adiciona o estado para a imagem manual
+  const [error, setError] = useState(false); // Estado para controlar erros
+  const { favorite, addFavorite } = useFavoriteContext(); // Contexto de favoritos
+  const [manualImage, setManualImage] = useState(""); // Estado para a imagem manual
 
   useEffect(() => {
-    setError(false);
+    setError(false); // Redefinir erro ao mudar o ID
   }, [id]);
 
   const handleManualImageChange = (event) => {
-    setManualImage(event.target.value); // Atualiza o estado da imagem manual
+    setManualImage(event.target.value); // Atualizar o estado da imagem manual
   };
 
   const handleManualImageSubmit = (event) => {
     event.preventDefault();
     if (manualImage) {
-      setError(false);
+      setError(false); // Se houver uma imagem manual, redefinir erro
     } else {
-      setError(true);
+      setError(true); // Se não houver uma imagem manual, definir erro
     }
   };
 
@@ -51,15 +50,10 @@ const PokeCard = ({ name, id, types, click }) => {
               alt={name}
               title={name}
               src={manualImage || GetImageById(id)}
+              onClick={() => addFavorite(id)}
             />
           )}
         </Link>
-
-        <img
-          src={pokeballwhite}
-          alt="teste"
-          onClick={() => addFavorite(id)}
-        />
       </figure>
       <div className="w-100  d-flex justify-content-between">
         {types.map((item, index) => {
