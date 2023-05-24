@@ -11,31 +11,37 @@ const PokeInfo = ({
 }) => {
   return (
     <div className="container-info d-flex flex-wrap my-4">
+      {/* Altura */}
       <div className="info-item">
         <h4>Height</h4>
         <p>{Math.round(height * 10) / 100} m</p>
       </div>
 
+      {/* Taxa de Captura */}
       <div className="info-item">
         <h4>Capture rate</h4>
         <p>{Math.round(capture_rate * 100) / 100}%</p>
       </div>
 
+      {/* Peso */}
       <div className="info-item">
         <h4>Weight</h4>
         <p>{Math.round(weight * 10) / 100} kg</p>
       </div>
 
+      {/* Habilidades */}
       <div className="info-item">
         <h4>Abilities</h4>
         <p>{abilities != null ? abilities : "-"}</p>
       </div>
 
+      {/* Gênero */}
       <div className="info-item mb-0">
         <h4>Gender</h4>
         <p>{gender_rate != null ? DetermineGenderRate(gender_rate) : "-"}</p>
       </div>
 
+      {/* Habitat */}
       <div className="info-item mb-0">
         <h4>Habitat</h4>
         <p>{habitat != null ? habitat : "-"}</p>
