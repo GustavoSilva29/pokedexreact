@@ -23,6 +23,7 @@ function Home({ history, ...props }) {
   const [pokemons, setPokemons] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
+  // Função para atualizar os resultados de busca ou todos os pokemons
   function HandlerResult(maximum, pokemons) {
     max = maximum;
     setPokemons(pokemons);
@@ -30,7 +31,10 @@ function Home({ history, ...props }) {
 
   useEffect(() => {
     setLoading(true);
+
+    // Verificar se há uma consulta de busca na URL
     if (query == undefined) {
+      // Exibir todos os pokemons
       HandlerResult(
         pokemonsOriginal.length,
         pokemonsOriginal.slice(0, perPage)
@@ -40,6 +44,7 @@ function Home({ history, ...props }) {
     }
 
     history.push(`/${query}`);
+    // Filtrar pokemons com base na consulta de busca
     var filterPokemons = pokemonsOriginal.filter((item) => {
       return (
         item.name.includes(query.toLowerCase()) || item.number.includes(query)
@@ -71,6 +76,7 @@ function Home({ history, ...props }) {
     setLoading(false);
   }, []);
 
+  // Função assíncrona para carregar a lista de pokemons da API
   async function LoadPokemons() {
     let pokeList = await api.get(`/pokemon?limit=${limit}`);
     var all = [];
@@ -97,6 +103,7 @@ function Home({ history, ...props }) {
     setLoading(false);
   }
 
+  // Função para carregar mais pokemons ao rolar a página
   function LoadMore() {
     setTimeout(() => {
       var limit = pokemons.length + perPage;
@@ -113,6 +120,8 @@ function Home({ history, ...props }) {
       }
     }, 1000);
   }
+
+  // Função para alternar entre favorito e não favorito
   function toggleFavorite(id) {
     const isFavorite = favorites.includes(id);
     if (isFavorite) {
@@ -121,16 +130,18 @@ function Home({ history, ...props }) {
     } else {
       setFavorites([...favorites, id]);
     }
-
   }
 
   return (
     <div>
       <Header />
 
+      {/* Contêiner principal */}
       <Container fluid>
         <Search history={history} query={query} />
+
         {loading ? (
+          // Exibir um spinner de carregamento enquanto os dados estão sendo carregados
           <LoadingCard qty={12} />
         ) : (
           <InfiniteScroll
@@ -139,6 +150,7 @@ function Home({ history, ...props }) {
             next={LoadMore}
             hasMore={pokemons.length < max}
             loader={
+              // Exibir um spinner de carregamento ao carregar mais pokemons
               <div className="mb-4 d-flex justify-content-center align-item-center">
                 <Spinner
                   style={{ color: Colors.card_gray }}
@@ -150,11 +162,13 @@ function Home({ history, ...props }) {
               </div>
             }
             endMessage={
+              // Exibir uma mensagem quando todos os pokemons forem exibidos
               <p className="text-light" style={{ textAlign: "center" }}>
-                <b>Você já viu tudos!</b>
+                <b>Você já viu todos!</b>
               </p>
             }
           >
+            {/* Renderizar os componentes PokeCard para cada pokemon */}
             <Row>
               {pokemons.map((item) => (
                 <Col key={item.id} xs={12} sm={6} lg={3}>
@@ -173,9 +187,9 @@ function Home({ history, ...props }) {
           </InfiniteScroll>
         )}
       </Container>
+
       <Footer />
     </div>
-
   );
 }
 
