@@ -12,7 +12,7 @@
   font-family: "Aero";
 }
 
-/* Colors */
+/* Cores */
 :root {
   --brand_dark: #212529;
   --brand_green: #13ce66;
@@ -52,12 +52,19 @@
   --card_gray: #495057;
 }
 
-body {
-  background-color: var(--brand_dark);
+@keyframes animatedBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 500%; }
+  100% { background-position: 0% 50%; }
 }
 
+body {
+  background: linear-gradient(90deg, #000000, #424242, #000000);
+  background-size: 200% 200%; /* Ajuste o tamanho do gradiente conforme necessário */
+  animation: animatedBackground 5s ease-in-out infinite;
+}
 .container-fluid {
-  max-width: 1144px;
+  max-width: 1000px;
 }
 
 *,
@@ -80,7 +87,7 @@ input:focus {
   -webkit-box-orient: vertical;
 }
 
-ocus,
+
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="datetime"]:focus,
@@ -113,10 +120,10 @@ input[type="color"]:focus,
 }
 
 .animation-up-down {
-  animation: updown 1s ease infinite;
+  animation: updown 1.5s ease infinite;
 }
 
-/* Colors types */
+/* Cores dos tipos */
 .normal {
   background-color: var(--normal);
 }
@@ -189,7 +196,7 @@ input[type="color"]:focus,
   background-color: var(--fairy);
 }
 
-/* Colors types text */
+/* Cores do texto */
 .text-normal {
   color: var(--normal);
 }
