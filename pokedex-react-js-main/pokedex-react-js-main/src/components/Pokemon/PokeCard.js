@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import "./styles.css";
 import { GetImageById } from "../../functions/utils";
 import pokemon_placeholder from "../../assets/img/pokemon-placeholder.png";
-import { useFavoriteContext } from "../../contexts/Favorites";
+
 
 const PokeCard = ({ name, id, types, click }) => {
   const [error, setError] = useState(false); // Estado para controlar erros
-  const { favorite, addFavorite } = useFavoriteContext(); // Contexto de favoritos
+
   const [manualImage, setManualImage] = useState(""); // Estado para a imagem manual
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const PokeCard = ({ name, id, types, click }) => {
               alt={name}
               title={name}
               src={manualImage || GetImageById(id)}
-              onClick={() => addFavorite(id)}
+
             />
           )}
         </Link>
