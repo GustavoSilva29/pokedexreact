@@ -24,7 +24,7 @@
   - Habilidades.
   - Estatísticas.
   - Evolução, entre outros.
-  - 
+  
 ### Página Favorites:
 
 - Mostra a Lista de pokémons adicionados a Pokedex.
