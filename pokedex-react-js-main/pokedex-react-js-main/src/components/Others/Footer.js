@@ -12,7 +12,7 @@ const Footer = () => {
         {/* Créditos do desenvolvedor */}
         <p className="mr-1 credits-text">Desenvolvido por</p>
         {/* Link para o perfil do desenvolvedor no Github */}
-        <a className="mhq" target="_blank" href="https://github.com/GustavoSilva29">
+        <a className="mhq" target="_blank" href="https://github.com/GustavoSilva29/pokedexreact">
           Gustavo Silva
         </a>
       </div>
