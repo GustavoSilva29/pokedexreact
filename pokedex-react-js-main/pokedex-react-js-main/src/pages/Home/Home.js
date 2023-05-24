@@ -33,7 +33,7 @@ function Home({ history, ...props }) {
     setLoading(true);
 
     // Verificar se há uma consulta de busca na URL
-    if (query == undefined) {
+    if (query === undefined) {
       // Exibir todos os pokemons
       HandlerResult(
         pokemonsOriginal.length,
@@ -64,7 +64,7 @@ function Home({ history, ...props }) {
     }
 
     pokemonsOriginal = listLocal;
-    if (query != undefined) {
+    if (query !== undefined) {
       var filterPokemons = listLocal.filter(
         (i) => i.name.includes(query.toLowerCase()) || i.number.includes(query)
       );
