@@ -31,10 +31,8 @@
 
 ## Instalação
 
-Para instalar todas as dependências, execute o seguinte comando no terminal:
+Para instalar todas as dependências, execute o seguinte comando no terminal: Execute o comando nesta pasta \pokedexreact-main\pokedexreact-main\pokedex-react-js-main> npm install ou yarn install
 
-npm install 
-ou
-yarn install
+Se necessario executar o comando npm audit fix --force
 
 Por fim, abra o seu navegador e acesse o seguinte endereço: http://localhost:3000
