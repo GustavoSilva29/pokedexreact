@@ -24,15 +24,11 @@
   - Habilidades.
   - Estatísticas.
   - Evolução, entre outros.
-  - 
-### Página Favorites:
-
-- Mostra a Lista de pokémons adicionados a Pokedex.
 
 ## Instalação
 
 Para instalar todas as dependências, execute o seguinte comando no terminal:
-
+Execute o comando nesta pasta \pokedexreact-main\pokedexreact-main\pokedex-react-js-main>
 npm install 
 ou
 yarn install
