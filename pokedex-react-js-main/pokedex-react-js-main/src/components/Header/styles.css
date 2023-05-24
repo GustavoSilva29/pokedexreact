@@ -2,4 +2,6 @@
   background-color: var(--electric);
   color: white;
   padding: 30px 0;
+  background-image: url(/src/assets/img/fundo.jpg);
+  background-size: 50vw; 
 }
