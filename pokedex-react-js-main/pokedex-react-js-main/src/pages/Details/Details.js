@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+
 import LoadingDetails from "../../components/Loading/LoadingDetails";
 import Header from "../../components/Header/Header";
 import PokeCard from "../../components/Pokemon/PokeCard";
@@ -14,6 +15,7 @@ import axios from "axios";
 
 function Details({ history, ...props }) {
   const { name } = props.match.params;
+
   const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState({});
   const [showModalError, setShowModalError] = useState(false);
@@ -89,18 +91,22 @@ function Details({ history, ...props }) {
   return (
     <div>
       <Header />
+
+      {/* ModalError - Modal para exibir mensagens de erro */}
       <ModalError
         history={history}
         show_modal_error={showModalError}
-        msg={"Ops! Could not load the information for this pokemon."}
+        msg={"Ops! Não foi possível carregar as informações para este pokémon."}
       />
+
       <Container fluid className="text-light mb-4">
         {loading ? (
-          <LoadingDetails />
+          <LoadingDetails /> // Exibe um componente de carregamento enquanto os detalhes estão sendo carregados
         ) : (
           <>
             <Row>
               <Col xs={12} md={6}>
+                {/* PokeCard - Exibe informações básicas do pokemon */}
                 <PokeCard
                   name={details.name}
                   id={details.id}
@@ -110,12 +116,14 @@ function Details({ history, ...props }) {
               </Col>
 
               <Col xs={12} md={6}>
+                {/* PokeOverview - Exibe uma visão geral do pokemon, incluindo texto de descrição */}
                 <PokeOverview
                   flavor_text_sword={details.flavor_text_sword}
                   flavor_text_shield={details.flavor_text_shield}
                   flavor_text_default={details.flavor_text_default}
                 />
 
+                {/* PokeInfo - Exibe informações adicionais sobre o pokemon, como altura, peso, habilidades, taxa de gênero e habitat */}
                 <PokeInfo
                   height={details.height}
                   capture_rate={details.capture_rate}
@@ -127,13 +135,17 @@ function Details({ history, ...props }) {
               </Col>
 
               <Col xs={12}>
+                {/* PokeStats - Exibe as estatísticas do pokemon */}
                 <PokeStats stats={details.stats} types={details.types} />
               </Col>
             </Row>
+
+            {/* PokeEvolution - Exibe a cadeia de evolução do pokemon */}
             <PokeEvolution data={details.evolution} types={details.types} />
           </>
         )}
       </Container>
+
       <Footer />
     </div>
   );
